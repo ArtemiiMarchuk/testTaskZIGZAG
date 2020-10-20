@@ -1,0 +1,73 @@
+@import '../../assets/mixins/fontMixin';
+
+.BoxesWrapper {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 512px;
+  display: flex;
+  justify-content: space-between;
+
+
+  &__item {
+    width: calc(33% - 6.666px);
+    background: #3C4561;
+    border: 2px solid #91ACD4;
+    border-radius: 5px;
+    padding-bottom: 37px;
+    box-shadow: 0 18px 19px -13px black;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+
+    &_active {
+      transform: scale(1.24, 1.172);
+      z-index: 3;
+      border-color: #83F6B1;
+
+      > .BoxesWrapper__label {
+        border-color: #83F6B1;
+        background-color: #83F6B1;
+        background-image: url("../../assets/images/check.svg");
+        background-size: 85% 85%;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+  }
+
+  &__give {
+    @include makeFont('Gilroy', 14px, #EEEEEE, center, none, bold);
+    margin-top: 36px;
+
+    & > span {
+      font-weight: 400;
+      font-size: 22px;
+      margin-top: 11px;
+      display: block;
+    }
+  }
+
+  &__earn {
+    @include makeFont('Gilroy', 14px, #83F6B1, center, none, bold);
+    margin-top: 19px;
+
+    & > span {
+      font-weight: 400;
+      font-size: 22px;
+      margin-top: 11px;
+      display: block;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translate(50%, 0);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #91ACD4;
+    border-radius: 50%;
+    background: #3C4561;
+  }
+}

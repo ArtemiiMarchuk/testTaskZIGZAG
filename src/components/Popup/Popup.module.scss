@@ -1,0 +1,131 @@
+@import '../../assets/mixins/fontMixin';
+
+.Popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 750px;
+  z-index: 3;
+  background: rgba(1, 1, 1, .5);
+  animation: popupWelcome 500ms ease-out forwards;
+
+  @keyframes popupWelcome {
+    0% {
+      top: -100%;
+    }
+
+    100% {
+      top: 0;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 695px;
+    background: #2e354b;
+    position: relative;
+    border-radius: 10px;
+    border: 3px solid #3b4460;
+    padding: 75px 15px 55px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(max-width: 695px) {
+      border-radius: 0;
+      height: 100%;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    cursor: pointer;
+    height: 17px;
+    width: 17px;
+
+    &:hover {
+      & > div {
+        &:last-child {
+          transform: rotate(-45deg);
+        }
+
+        &:first-child {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    & > div {
+      background: #607190;
+      height: 16px;
+      width: 3px;
+      position: absolute;
+      top: 0;
+      right: 50%;
+      transition: transform .3s;
+
+      &:last-child {
+        transform: rotate(45deg);
+      }
+
+      &:first-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: -3px;
+    right: 50%;
+    display: inline-block;
+    padding: 9px 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #83F6B1;
+    transform: translate(50%, 0);
+    @include makeFont('Gilroy', 16px, #272C44, center, none, bold)
+  }
+
+  &__title {
+    margin-top: 27px;
+    @include makeFont('Gilroy', 36px, #EEEEEE, center, none, bold)
+  }
+
+  &__subtitle {
+    margin-top: 47px;
+    @include makeFont('Gilroy', 16px, #EEEEEE, center, none, bold);
+    margin-bottom: 24px;
+
+    & > span {
+      color: #83F6B1;
+      margin-right: 3px;
+    }
+  }
+
+  &__caption {
+    width: 100%;
+    max-width: 417px;
+    margin-top: 22px;
+    @include makeFont('Gilroy', 14px, #91ACD4, center, none, 500);
+  }
+
+  &__captionDetail {
+    margin-top: 8px;
+    @include makeFont('Gilroy', 14px, #91ACD4, center, uppercase, bold);
+    border-bottom: 2px dotted #91ACD4;
+    padding-bottom: 2px;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom-style: solid;
+    }
+  }
+}

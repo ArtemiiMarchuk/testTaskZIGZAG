@@ -1,0 +1,15 @@
+@import '../../../assets/mixins/fontMixin';
+
+.Timer {
+  display: flex;
+  align-items: center;
+
+  &__image {
+    width: 18px;
+    margin-right: 8px;
+  }
+
+  &__text {
+    @include makeFont('Gilroy', 22px, #83F6B1, center, none, 400)
+  }
+}

@@ -1,0 +1,73 @@
+@import '../../../assets/mixins/fontMixin';
+
+.Select {
+  width: 100%;
+  max-width: 392px;
+  margin-top: 30px;
+  height: 40px;
+  border-radius: 5px;
+  background: #3C4561;
+  @include makeFont('Gilroy', 16px, #EEEEEE, left, none, bold);
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 4;
+
+  &__item {
+    @include makeFont('Gilroy', 16px, #EEEEEE, left, none, bold);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 18px;
+
+    &_active {
+      &_opened {
+        border-top: 1px solid white;
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 19px;
+    right: 22px;
+    transition: transform .1s;
+
+    &_opened {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__itemsWrapper {
+    position: absolute;
+    background: #3C4561;
+    width: 100%;
+    left: 0;
+    top: 35px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+
+    &_closed {
+      display: none;
+    }
+
+    & > div {
+      transition: background .2s;
+
+      &:hover {
+        background: #303753;
+      }
+    }
+  }
+
+  &__image {
+    width: 20px;
+    margin-right: 19px;
+  }
+}

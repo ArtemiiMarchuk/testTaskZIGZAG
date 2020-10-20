@@ -1,0 +1,9 @@
+@mixin makeFont($family, $size, $color, $align, $transform, $weight) {
+  font-family: #{$family};
+  font-size: $size;
+  color: $color;
+  text-align: $align;
+  text-transform: $transform;
+  font-weight: $weight;
+  line-height: 1;
+}

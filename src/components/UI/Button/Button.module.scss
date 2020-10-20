@@ -1,0 +1,28 @@
+@import '../../../assets/mixins/fontMixin';
+
+.Button {
+  display: inline-block;
+  height: 42px;
+
+  &__button {
+    @include makeFont('Montserrat', 14px, #282A3B, center, none, bold);
+    padding: 14px 24px;
+    border: none;
+    border-radius: 5555px;
+    outline: none;
+    background: #83F6B1;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &__shadow {
+    width: 75px;
+    height: 28px;
+    position: relative;
+    bottom: 28px;
+    left: 35px;
+    box-shadow: 0 6px 37px -5px #83F6B1;
+    z-index: 1;
+  }
+}
